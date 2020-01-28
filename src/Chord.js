@@ -1,5 +1,3 @@
-import { Interval } from './Interval';
-
 export class Chord {
     constructor(intervals) {
         this.intervals = intervals;
