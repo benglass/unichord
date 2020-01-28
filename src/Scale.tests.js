@@ -14,7 +14,7 @@ describe('Scale', () => {
             new Interval(9),
             new Interval(11)
         ]);
-        assertScale(scale, [2,4,5,7,9,11]);
+        assertScale(scale, [0,2,4,5,7,9,11]);
     });
 
     it('I can derive a mode from a scale', () => {
@@ -28,12 +28,12 @@ describe('Scale', () => {
             new Interval(11)
         ]);
         // dorian
-        assertScale(scale.getMode(2), [2,3,5,7,9,10,12]);
+        assertScale(scale.getMode(2), [0,2,3,5,7,9,10,12], 'dorian');
         // phyrigian
-        assertScale(scale.getMode(3), [1,3,5,7,8,10,12]);
+        assertScale(scale.getMode(3), [0,1,3,5,7,8,10,12], 'phyrigian');
         // etc.
         // aeolian
-        assertScale(scale.getMode(6), [2,3,5,7,8,10,12]);
+        assertScale(scale.getMode(6), [0,2,3,5,7,8,10,12], 'aeolian');
     });
 
     it('I can get the notes of a scale starting from a root note', () => {
@@ -64,12 +64,12 @@ describe('Scale', () => {
 
 });
 
-function assertScale(actual, expectedIntervals) {
+function assertScale(actual, expectedIntervals, label = '') {
     expectedIntervals.forEach((interval, index) => {
-        const intervalNumber = index + 2;
+        const intervalNumber = index + 1;
         const actualInterval = actual.getInterval(intervalNumber);
         const expectedInterval = new Interval(interval);
-        assert.equal(actualInterval.valueOf(), expectedInterval.valueOf(), `Expected interval ${intervalNumber} to be ${expectedInterval.valueOf()} but it was ${actualInterval.valueOf()}`);
+        assert.equal(actualInterval.valueOf(), expectedInterval.valueOf(), `${label ? label + ': ' : ''}Expected interval ${intervalNumber} to be ${expectedInterval.valueOf()} but it was ${actualInterval.valueOf()}`);
     });
 }
 
