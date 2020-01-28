@@ -4,6 +4,8 @@ export class Scale {
     constructor(intervals) {
         // Always add the octave so the consumer doesn't have to
         this.intervals = intervals.concat(new Interval(12));
+        // TODO: Consider maybe scales should include the root note
+        // this.intervals = [new Interval(0)].intervals.concat(new Interval(12));
     }
 
     getInterval = ordinal => this.intervals[ordinal - 2];
@@ -85,12 +87,15 @@ export class Scale {
         };
 
         return iterableNotes;
-        // return [
-        //     rootNote
-        // ].concat(
-        //     this.intervals.map(
-        //         interval => rootNote.add(interval)
-        //     )
-        // );
     };
 }
+
+export const MAJOR_SCALE = new Scale([
+    new Interval(Interval.SECOND),
+    new Interval(Interval.MAJOR_THIRD),
+    new Interval(Interval.PERFECT_FOURTH),
+    new Interval(Interval.PERFECT_FIFTH),
+    new Interval(Interval.MAJOR_SIXTH),
+    new Interval(Interval.MAJOR_SEVENTH),
+    new Interval(Interval.MAJOR_SEVENTH),
+]);

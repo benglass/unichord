@@ -30,6 +30,12 @@ export class Note {
 
     _modifyInterval = (interval, direction) => {
         const numberOfHalfSteps = interval.halfSteps;
+
+        // It makes consumers lives easier to support Interval(0) being the root note
+        if (numberOfHalfSteps === 0) {
+            return this;
+        }
+
         let nextOrdinal = this.ordinal;
         let nextPitch = this.pitch;
         const lastOrdinalBeforePitchChange = direction === 1 ? 12 : 1;

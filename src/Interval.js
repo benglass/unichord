@@ -8,6 +8,7 @@ export class Interval {
         this.toString = () => this.halfSteps;
     }
 
+    static ROOT = 0;
     static FLAT_SECOND = 1;
     static SECOND = 2;
     static MINOR_THIRD = 3;
@@ -19,4 +20,5 @@ export class Interval {
     static MAJOR_SIXTH = 9;
     static MINOR_SEVENTH = 10;
     static MAJOR_SEVENTH = 11;
+    static OCTAVE = 12;
 }
