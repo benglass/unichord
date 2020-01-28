@@ -5,7 +5,7 @@ export class Interval {
         // For comparison
         this.valueOf = () => this.halfSteps;
 
-        this.toString = () => this.halfSteps;
+        this.toString = () => String(this.halfSteps);
     }
 
     static ROOT = 0;

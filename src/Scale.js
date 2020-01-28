@@ -98,7 +98,6 @@ export const MAJOR_SCALE = new Scale([
     new Interval(Interval.PERFECT_FIFTH),
     new Interval(Interval.MAJOR_SIXTH),
     new Interval(Interval.MAJOR_SEVENTH),
-    new Interval(Interval.MAJOR_SEVENTH),
 ]);
 
 const tail = items => items.slice(1);
