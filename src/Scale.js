@@ -10,6 +10,10 @@ export class Scale {
 
     getInterval = ordinal => this.intervals[ordinal - 1];
 
+    getNote = (rootNote, ordinal) => {
+        return last(this.getNotes(rootNote).take(ordinal));
+    }
+
     getMode = startOrdinal => {
         if (startOrdinal === 1) {
             return this;
@@ -102,3 +106,4 @@ export const MAJOR_SCALE = new Scale([
 
 const tail = items => items.slice(1);
 const init = items => items.slice(0, items.length - 1);
+const last = items => items[items.length - 1];
